@@ -21,6 +21,42 @@
       margin-top:40px;
       margin-bottom:40px;
       }
+	  .tag {
+            display: inline-block;
+            padding: 0px 8px;
+            margin: 0 0px;
+            border-radius: 7px;
+            color: white;
+            font-size: 0.85em;
+        }
+        .arxiv {
+            background-color: darkred;
+        }
+        .rl {
+            background-color: lightseagreen;
+        }
+        .robotics {
+            background-color: lightskyblue;
+        }
+	   .optimization {
+            background-color: lightslategrey;
+        }
+	   .conference {
+            background-color: royalblue;
+        }
+	   .vision {
+            background-color: darkslateblue;
+        }
+	   	.mixed_results {
+            background-color: coral;
+        }
+	   .positive_results {
+            background-color: darkseagreen;
+        }
+	   .negative_results {
+            background-color: indianred;
+        }
+	   	
    </style><script type="text/javascript">
           function toggle_visibility(id) {
              var e = document.getElementById(id);
@@ -113,7 +149,7 @@
                      <tr>
                         <td style="width:300px;height:150px"> <a imageanchor="1" href="t3.gif"><img width="300" src="images/fastTRAC.gif" height="500" border="0" style="border-radius: 5px"></a></td>
                         <td style="width:1200px;height:89px;padding-left: 10px;">
-                           <b>Fast TRAC: A Parameter-free Optimizer for Lifelong Reinforcement Learning</b><br><strong>Aneesh Muppidi</strong>, Zhiyu Zhang, Heng Yang<br>on Arxiv, 2024 <br> <a href="https://arxiv.org/pdf/2405.16642">Arxiv</a>, <a href="javascript:toggle_visibility('zhao2024t3')">Bibtex</a>, <a href="https://github.com/ComputationalRobotics/TRAC">Code</a>, <a href="https://computationalrobotics.seas.harvard.edu/TRAC/">Website</a>
+                           <b>Fast TRAC: A Parameter-free Optimizer for Lifelong Reinforcement Learning</b><br><strong>Aneesh Muppidi</strong>, Zhiyu Zhang, Heng Yang<br><span class="tag arxiv"><strong>arXiv</strong> preprint</span> <span class="tag rl">RL</span> <span class="tag optimization">optimization</span> <span class="tag vision">vision-based</span> <br> <a href="https://arxiv.org/pdf/2405.16642">arXiv</a>, <a href="javascript:toggle_visibility('zhao2024t3')">Bibtex</a>, <a href="https://github.com/ComputationalRobotics/TRAC">Code</a>, <a href="https://computationalrobotics.seas.harvard.edu/TRAC/">Website</a>
                             <pre id="wang2024hpt" xml:space="preserve" style="display: none; font-size: 12px">                            
 							@misc{muppidi2024pickpaceparameterfreeoptimizer,
 								  title={Pick up the PACE: A Parameter-Free Optimizer for Lifelong Reinforcement Learning}, 
@@ -134,7 +170,7 @@
                      <tr>
                         <td style="width:300px;height:150px"> <a imageanchor="1" href="output.gif"><img width="200" src="images/pf_output2.gif" height="140" border="0" style="border-radius: 5px"></a></td>
                         <td style="width:1200px;height:89px;padding-left: 10px;">
-                           <b>Resampling-free Particle Filters in High-dimensions</b><br>Akhilan Boopathy, <strong>Aneesh Muppidi</strong>, Peggy Yang, Abhiram Iyer, William Yue, Ila Fiete<br> International Conference on Robotics and Automation (ICRA), 2024 <br><a href="https://arxiv.org/pdf/2404.13698">Arxiv</a>, <a href="javascript:toggle_visibility('wang2024poco')">Bibtex</a><a 
+                           <b>Resampling-free Particle Filters in High-dimensions</b><br>Akhilan Boopathy, <strong>Aneesh Muppidi</strong>, Peggy Yang, Abhiram Iyer, William Yue, Ila Fiete<br><span class="tag conference"><strong>ICRA</strong> 2024</span> <span class="tag optimization">optimization</span> <span class="tag robotics">robotics</span> <span class="tag vision">vision-based</span><br> <a href="https://arxiv.org/pdf/2404.13698">arXiv</a>,<a href="javascript:toggle_visibility('wang2024poco')">Bibtex</a><a 
                             <pre id="wang2024poco" xml:space="preserve" style="display: none; font-size: 12px">                            
 							@misc{boopathy2024resamplingfreeparticlefiltershighdimensions,
 								  title={Resampling-free Particle Filters in High-dimensions}, 
@@ -155,7 +191,7 @@
                      <tr>
                         <td style="width:300px;height:150px"> <a imageanchor="1" href="qcnn.png"><img id="qcnn" width="200" src="images/qcnn.png" height="140" border="0" style="border-radius: 5px"></a></td>
                         <td style="width:1200px;height:89px;padding-left: 10px;">
-                           <b>Speech Emotion Recognition using Quaternion Convolutional Neural Networks&nbsp;</b><br><b>Aneesh Muppidi</b>, Martin Radfar<br>International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2021<br> <a target="_blank" href="https://arxiv.org/abs/2111.00404">Arxiv</a>, <a href="javascript:toggle_visibility('wang2023fleet')">Bibtex</a>
+                           <b>Speech Emotion Recognition using Quaternion Convolutional Neural Networks&nbsp;</b><br><b>Aneesh Muppidi</b>, Martin Radfar<br><span class="tag conference"><strong>ICASSP</strong> 2021</span> <span class="tag vision">vision-based</span><br> <a target="_blank" href="https://arxiv.org/abs/2111.00404">arXiv</a>, <a href="javascript:toggle_visibility('wang2023fleet')">Bibtex</a>
                             <pre id="wang2023fleet" xml:space="preserve" style="display: none; font-size: 12px">                         @misc{muppidi2021speechemotionrecognitionusing,title={Speech Emotion Recognition Using Quaternion Convolutional Neural Networks}, author={Aneesh Muppidi and Martin Radfar},year={2021},eprint={2111.00404},archivePrefix={arXiv},primaryClass={cs.SD}url={https://arxiv.org/abs/2111.00404}, }
                            </pre>
                         </td>
@@ -175,8 +211,9 @@
                         <td style="width:300px;height:50px"> <a imageanchor="1" href="t3.gif"><img width="300" src="images/minimal_clustering_animation.gif" height="500" border="0" style="border-radius: 5px"></a></td>
                         <td style="width:1200px;height:89px;padding-left: 10px;">
 						   <b><span style="color: indianred;">Final Project:</span> Let's Learn Agency: Learning Emergent Agent and Non-Agent Trajectory Representations</b><br>                          
-                            <strong><a href="https://pulkitag.github.io/6.8200/">MIT 6.8200</a></strong> with <a href="https://people.csail.mit.edu/pulkitag/"><strong>Pulkit Agrawal</strong></a><br>
-                            on Arxiv, 2024<br> <a href="https://drive.google.com/file/d/1U5Y_--jjkADgqF5jtnUrs7MQGBEWeAb-/view?usp=sharing">Project Report</a>, <a href="https://arxiv.org/abs/2111.00404">Video Presentation</a>
+                            <strong><a href="https://pulkitag.github.io/6.8200/">MIT 6.8200</a></strong> with <a href="https://people.csail.mit.edu/pulkitag/"><strong>Pulkit Agrawal</strong></a>
+							<br><span class="tag mixed_results">mixed</span> <span class="tag rl">RL</span><br><br> 
+							<a href="https://drive.google.com/file/d/1U5Y_--jjkADgqF5jtnUrs7MQGBEWeAb-/view?usp=sharing">Project Report</a>, <a href="https://arxiv.org/abs/2111.00404">Video Presentation</a>
                            
                        </td>
                      </tr>
@@ -188,8 +225,7 @@
                         <td style="width:300px;height:150px"> <a imageanchor="1" href="output.gif"><img width="200" src="images/LLMmanipulation.gif" height="140" border="0" style="border-radius: 5px"></a></td>
                         <td style="width:1200px;height:89px;padding-left: 10px;">
                         <b><span style="color: indianred;">Final Project:</span> Generating Suboptimal Expert Demonstrartions with Large Language Models&nbsp; </b><br>
-							<strong><a href="http://manipulation.csail.mit.edu/index.html">MIT 6.4212</a></strong> with <a href="https://groups.csail.mit.edu/locomotion/russt.html"><strong>Russ Tedrake</strong></a>; project advised by <a href="https://liruiw.github.io">Lirui Wang</a> <br>
-International Conference on Robotics and Automation (ICRA), 2024 <br><a href="https://drive.google.com/file/d/1z9kg2G_8Pg0LaXUXjV-0wWYSYOqZu5UQ/view?usp=sharing">Project Report</a>, <a href="https://drive.google.com/file/d/1phoeczkp6M6iGNskliAt-WKACXjaMk2X/view?usp=sharing">Video Presentation</a>
+							<strong><a href="http://manipulation.csail.mit.edu/index.html">MIT 6.4212</a></strong> with <a href="https://groups.csail.mit.edu/locomotion/russt.html"><strong>Russ Tedrake</strong></a>; project advised by <a href="https://liruiw.github.io">Lirui Wang</a> <br><span class="tag positive_results">positive</span> <span class="tag robotics">robotics</span><br><a href="https://drive.google.com/file/d/1z9kg2G_8Pg0LaXUXjV-0wWYSYOqZu5UQ/view?usp=sharing">Project Report</a>, <a href="https://drive.google.com/file/d/1phoeczkp6M6iGNskliAt-WKACXjaMk2X/view?usp=sharing">Video Presentation</a>
                         </td>
                      </tr>
                   </tbody>
@@ -200,8 +236,7 @@ International Conference on Robotics and Automation (ICRA), 2024 <br><a href="ht
                         <td style="width:300px;height:150px"> <a imageanchor="1" href="output.gif"><img width="200" src="images/rnotebook2.gif" height="140" border="0" style="border-radius: 5px"></a></td>
                         <td style="width:1200px;height:89px;padding-left: 10px;">
                         <b><span style="color: indianred;">Final Project:</span> Rapid Learning Mechanisms and Neural Representations in Reinforcement Learning</b><br>
-							<strong><a href="https://undergrad.psychology.fas.harvard.edu/lab-courses">Harvard PSY 2350R</a></strong> with <a href="https://psychology.fas.harvard.edu/people/samuel-j-gershman"><strong>Sam Gershman</strong></a>; project advised by <a href="https://mobeets.github.io/me/">Jay Henning</a><br>
-International Conference on Robotics and Automation (ICRA), 2024 <br><a href="https://drive.google.com/file/d/1iQPYa3iId4sVgcRtQcJCRDaHW2Q9spOo/view?usp=sharing">Project Report</a>, <a href="https://github.com/Aneeshers/Rapid-learning">Code</a>, <a href="https://github.com/Aneeshers/Rapid-learning/tree/main/ResearchNotebook">Research Notebok</a>
+							<strong><a href="https://undergrad.psychology.fas.harvard.edu/lab-courses">Harvard PSY 2350R</a></strong> with <a href="https://psychology.fas.harvard.edu/people/samuel-j-gershman"><strong>Sam Gershman</strong></a>; project advised by <a href="https://mobeets.github.io/me/">Jay Henning</a><br><span class="tag mixed_results">mixed</span> <span class="tag rl">RL</span><br><a href="https://drive.google.com/file/d/1iQPYa3iId4sVgcRtQcJCRDaHW2Q9spOo/view?usp=sharing">Project Report</a>, <a href="https://github.com/Aneeshers/Rapid-learning">Code</a>, <a href="https://github.com/Aneeshers/Rapid-learning/tree/main/ResearchNotebook">Research Notebok</a>
                         </td>
                      </tr>
                   </tbody>
@@ -212,8 +247,7 @@ International Conference on Robotics and Automation (ICRA), 2024 <br><a href="ht
                         <td style="width:300px;height:150px"> <a imageanchor="1" href="output.gif"><img width="200" src="images/model2T212.gif" height="140" border="0" style="border-radius: 5px"></a></td>
                         <td style="width:1200px;height:89px;padding-left: 10px;">
                         <b><span style="color: indianred;">Final Project:</span> Diffusion Policy for Classical Control Problems</b><br>
-							<strong><a href="https://hankyang.seas.harvard.edu/OptimalControlEstimation/">Harvard ES158</a></strong> with <a href="https://hankyang.seas.harvard.edu"><strong>Heng Yang</strong></a><br>
-International Conference on Robotics and Automation (ICRA), 2024 <br><a href="https://drive.google.com/file/d/1TvBMpnqWL6lUQzHVFreucjiGUAefIPT3/view?usp=sharing">Project Report</a>, <a href="https://github.com/Aneeshers/PendulumDiffusionPolicy">Code</a>, <a href="https://docs.google.com/presentation/d/17lPgPJV3t8c2tDfAgWiFfjCKc2zVt_nePYMO0pSuuw0/edit?usp=sharing">Slides</a>
+							<strong><a href="https://hankyang.seas.harvard.edu/OptimalControlEstimation/">Harvard ES158</a></strong> with <a href="https://hankyang.seas.harvard.edu"><strong>Heng Yang</strong></a><br><span class="tag negative_results">negative</span> <span class="tag rl">RL</span> <span class="tag robotics">robotics</span><br><a href="https://drive.google.com/file/d/1TvBMpnqWL6lUQzHVFreucjiGUAefIPT3/view?usp=sharing">Project Report</a>, <a href="https://github.com/Aneeshers/PendulumDiffusionPolicy">Code</a>, <a href="https://docs.google.com/presentation/d/17lPgPJV3t8c2tDfAgWiFfjCKc2zVt_nePYMO0pSuuw0/edit?usp=sharing">Slides</a>
                         </td>
                      </tr>
                   </tbody>
@@ -225,8 +259,7 @@ International Conference on Robotics and Automation (ICRA), 2024 <br><a href="ht
                         <td style="width:300px;height:150px"> <a imageanchor="1" href="output.gif"><img width="200" src="images/marlvis.gif" height="140" border="0" style="border-radius: 5px"></a></td>
                         <td style="width:1200px;height:89px;padding-left: 10px;">
                         <b><span style="color: indianred;">Final Project:</span> Visualizing Collaborative Multi-Agent Reinforcement Learning </b><br>
-							<strong><a href="https://cs-271.github.io">Harvard CS271</a></strong> with <a href="https://johanna-b.github.io">Johanna Beyer&nbsp;</a>and <a href="https://vcg.seas.harvard.edu/people"><strong>Hanspeter Pfister</strong></a> <br>
-International Conference on Robotics and Automation (ICRA), 2024 <br><a href="https://drive.google.com/file/d/1eSiQjPDIgu6ez9RX3e6qhI2IA_ZMYrcp/view?usp=sharing">Project Report</a>, <a href="https://drive.google.com/file/d/1wU9_DzRx80eZlrooV0pRWUfTP1xFagFW/view?usp=sharing">Slides</a>
+							<strong><a href="https://cs-271.github.io">Harvard CS271</a></strong> with <a href="https://johanna-b.github.io">Johanna Beyer&nbsp;</a>and <a href="https://vcg.seas.harvard.edu/people"><strong>Hanspeter Pfister</strong></a> <br><span class="tag positive_results">positive</span> <span class="tag rl">RL</span> <br><a href="https://drive.google.com/file/d/1eSiQjPDIgu6ez9RX3e6qhI2IA_ZMYrcp/view?usp=sharing">Project Report</a>, <a href="https://drive.google.com/file/d/1wU9_DzRx80eZlrooV0pRWUfTP1xFagFW/view?usp=sharing">Slides</a>
                         </td>
                      </tr>
                   </tbody>
@@ -236,38 +269,7 @@ International Conference on Robotics and Automation (ICRA), 2024 <br><a href="ht
 		  </div>
 			 
       </section></div>
-            
-            
-      <hr>
-     
-      <div id="education">
-         <ul>
-         <h3>Misc Projects</h3>
-         <table style="float: left; width:30%">
-
-            <tbody><tr>
-               <td style="width:801px;height:129px"> <a imageanchor="1" href="deepim.gif"><img width="501" src="images/deepim.gif" height="129" border="100" style="border-radius: 5px"></a></td>
-               <td style="width:501px;height:129px"><b>Apple Watch Drone Controller </b><br>Stanford Tree Hacks <br>   </td>
-            </tr>
-         </tbody></table>
-         <table style="float: left; width:30%">
-            <tbody><tr>
-               <td style="width:501px;height:129px"> <a imageanchor="1" href="mc_real.gif"><img width="501" src="images/mc_real.gif" height="129" border="0" align="middle" style="border-radius: 5px"></a></td>
-               <td style="width:501px;height:129px"><b>Social Investing App</b><br>Hack MIT<br>
-               </td>
-            </tr>
-   
-         </tbody></table>
-         <table style="float: left; width:30%">
-             <tbody><tr>
-               <td style="width:501px;height:129px"> <a imageanchor="1" href="dji_new.gif"><img width="501" src="images/dji_new.gif" height="129" border="0" align="middle" style="border-radius: 5px"></a></td>
-               <td style="width:501px;height:129px"><b>Auto Cooperation</b><br>DJI<br>  
-<!--                   <a target='_blank' href='https://drive.google.com/file/d/1Dp8NrfpvFx_pqv23bxDlvOGu1g0OIxe4/view'>Demo</a> 
- -->               </td>
-            </tr>
-         </tbody></table>
-      </ul></div>
-   
+           
    <br>
    <br>  
 </div></div></div></body></html>
