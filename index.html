@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-B5KNRV9M54"></script>
+	<script src="https://unpkg.com/humanbehavior-js@latest/dist/index.min.js"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
@@ -21,6 +22,10 @@
   </head>
 
   <body>
+	  <script>
+        // Initialize tracker
+        const tracker = HumanBehaviorTracker.init('7af1cc8e-805a-4459-9eeb-e4501dac164e', {});
+	</script>
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
