@@ -3,7 +3,7 @@
   font-family: 'Berkeley Mono';
   font-style: normal;
   font-weight: 400;
-  src: url('/Users/aneesh/Documents/reasoning_lab_aidan/reasoning-lab/public/fonts/BerkeleyMonoTrial-Regular.otf') format('opentype');
+  src: url('fonts/BerkeleyMonoTrial-Regular.otf') format('opentype');
   font-display: swap;
 }
 
