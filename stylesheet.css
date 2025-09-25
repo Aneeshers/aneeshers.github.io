@@ -119,6 +119,15 @@ span[style*="color: darkred"] {
   border-radius: 10px;
 }
 
+/* Show/hide dropdowns based on screen size */
+.desktop-dropdowns {
+  display: block;
+}
+
+.mobile-dropdowns {
+  display: none;
+}
+
 /* Minimalist dropdown styles */
 .dropdown {
   margin: 10px 0;
@@ -221,6 +230,17 @@ span[style*="color: darkred"] {
 
 /* Responsive Layout */
 @media (max-width: 768px) {
+  /* Hide desktop dropdowns on mobile */
+  .desktop-dropdowns {
+    display: none;
+  }
+
+  /* Show mobile dropdowns on mobile */
+  .mobile-dropdowns {
+    display: table-row;
+  }
+
+  /* Photo gallery on mobile */
   .photo-gallery td {
     display: block;
     width: 100%;
