@@ -128,6 +128,11 @@ span[style*="color: darkred"] {
   display: none;
 }
 
+/* Profile image alignment - desktop: top, mobile: middle */
+.profile-image-cell {
+  vertical-align: top; /* Desktop default */
+}
+
 /* Minimalist dropdown styles */
 .dropdown {
   margin: 10px 0;
@@ -238,6 +243,11 @@ span[style*="color: darkred"] {
   /* Show mobile dropdowns on mobile */
   .mobile-dropdowns {
     display: table-row;
+  }
+
+  /* Profile image centered on mobile */
+  .profile-image-cell {
+    vertical-align: middle !important;
   }
 
   /* Photo gallery on mobile */
