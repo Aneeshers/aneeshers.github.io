@@ -247,25 +247,6 @@ span[style*="color: darkred"] {
   }
 }
 
-.questions-list {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0;
-}
-
-.questions-list li {
-  background: none !important;
-  padding: 5px 0 !important;
-  margin: 8px 0 !important;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.questions-list strong {
-  color: #333;
-  font-weight: 600;
-}
-
 .photo-gallery {
   width: 100%;
   border: 0;
