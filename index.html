@@ -14,7 +14,10 @@
 
     <meta name="author" content="Aneesh Muppidi">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/headshot.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="//www-media.stanford.edu/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="//www-media.stanford.edu/assets/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="//www.stanford.edu/favicon.ico">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5KNRV9M54"></script>
@@ -28,6 +31,45 @@
         gtag('js', new Date());
 
         gtag('config', 'G-B5KNRV9M54');
+    </script>
+    <script>
+        (function () {
+            function setActiveTab(tabName) {
+                document.querySelectorAll('[data-research-tab]').forEach(function (button) {
+                    const isActive = button.dataset.researchTab === tabName;
+                    button.classList.toggle('active', isActive);
+                    button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                    button.setAttribute('tabindex', isActive ? '0' : '-1');
+                });
+
+                document.querySelectorAll('[data-research-panel]').forEach(function (panel) {
+                    const isActive = panel.dataset.researchPanel === tabName;
+                    panel.classList.toggle('active', isActive);
+                    panel.hidden = !isActive;
+                });
+            }
+
+            function init() {
+                const tabs = document.querySelectorAll('[data-research-tab]');
+                if (!tabs.length) {
+                    return;
+                }
+
+                tabs.forEach(function (tab) {
+                    tab.addEventListener('click', function () {
+                        setActiveTab(tab.dataset.researchTab);
+                    });
+                });
+
+                setActiveTab('selected');
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
     </script>
 </head>
 
@@ -90,25 +132,27 @@
                     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                         <tbody>
                             <tr>
-                                <td style="padding:16px;width:100%;vertical-align:middle">
+                                <td class="recent-news-cell">
+                                    <div class="recent-news-wrap">
                                     <h2>Recent News</h2>
                                     <p>
                                         <ul>
                                             <li style="background: rgba(208, 231, 255, 0.15);">
                                                 I received the <strong>US</strong> <strong><a href="https://news.harvard.edu/gazette/story/2024/11/rhodes-scholars-share-their-oxford-ambitions/">Rhodes</a></strong> <strong><a href="https://www.forbes.com/sites/michaeltnietzel/2024/11/17/32-us-students-among-the-2025-rhodes-scholarship-recipients/">Scholarship.</a></strong>&nbsp;
                                             </li>
-                                            <li style="background: rgba(208, 231, 255, 0.15);">
-                                                My first-author work was accepted to <strong>NeurIPS (Poster) Main Conference</strong>, and&nbsp;<strong>RLC&nbsp;</strong> <span style="color: darkred;">(Spotlight)</span>, <strong>RSS</strong> <span style="color: darkred;">(Spotlight)</span>,
-                                                and <strong>TTIC</strong> workshops. Check out the <strong><a href="https://computationalrobotics.seas.harvard.edu/TRAC/">website</a></strong> and <strong><a href="https://github.com/ComputationalRobotics/TRAC?tab=readme-ov-file">code.</a></strong>
-                                            </li>
-                                            <li style="background: rgba(208, 231, 255, 0.15);">
-                                                New work on <strong><a href="https://aneeshers.github.io/predictive-scheduling/">Predictive Scheduling for LLM Reasoning</a></strong> accepted to <strong>ICML ES-FoMo III</strong>, Vancouver 2025.
-                                            </li>
-                                            <li style="background: rgba(208, 231, 255, 0.15);">
-                                                <a href="https://aneeshers.github.io/PermutationInvariantLearning/"><strong>Preprint</strong></a> on Particle Filters for Continual DL/RL.&nbsp;&nbsp;
-                                            </li>
-                                        </ul>
-                                    </p>
+                                                <li style="background: rgba(208, 231, 255, 0.15);">
+                                                    My first-author work was accepted to <strong>NeurIPS (Poster) Main Conference</strong>, and&nbsp;<strong>RLC&nbsp;</strong> <span style="color: darkred;">(Spotlight)</span>, <strong>RSS</strong> <span style="color: darkred;">(Spotlight)</span>,
+                                                    and <strong>TTIC</strong> workshops. Check out the <strong><a href="https://computationalrobotics.seas.harvard.edu/TRAC/">website</a></strong> and <strong><a href="https://github.com/ComputationalRobotics/TRAC?tab=readme-ov-file">code.</a></strong>
+                                                </li>
+                                                <li style="background: rgba(208, 231, 255, 0.15);">
+                                                    New work on <strong><a href="https://aneeshers.github.io/predictive-scheduling/">Predictive Scheduling for LLM Reasoning</a></strong> accepted to <strong>ICML ES-FoMo III</strong>, Vancouver 2025.
+                                                </li>
+                                                <li style="background: rgba(208, 231, 255, 0.15);">
+                                                    <a href="https://aneeshers.github.io/PermutationInvariantLearning/"><strong>Preprint</strong></a> on Particle Filters for Continual DL/RL.&nbsp;&nbsp;
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
                                 </td>
                             </tr>
 
@@ -139,163 +183,215 @@
                                     <h2>Research</h2>
                                 </td>
                             </tr>
-                            <!-- NEW: Predictive Scheduling Paper -->
                             <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="one">
-                                        <img src="images/pred1.gif" width="100%">
+                                <td style="padding:0 16px 16px;" colspan="2">
+                                    <div class="research-tabs" role="tablist" aria-label="Research filters">
+                                        <button type="button" class="research-tab active" data-research-tab="selected" aria-selected="true">Selected</button>
+                                        <span class="research-tab-separator">/</span>
+                                        <button type="button" class="research-tab" data-research-tab="all" aria-selected="false" tabindex="-1">All</button>
                                     </div>
                                 </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <a href="https://aneeshers.github.io/predictive-scheduling/">
-                                        <span class="papertitle">Predictive Scheduling for Efficient Inference-Time Reasoning in Large Language Models</span>
-                                    </a>
-                                    <br>
-                                    <a href="https://katrinarbrown.com">Katrina Brown</a><em><strong><span style="color:darkred;">*</span></strong></em>,
-                                    <strong>Aneesh Muppidi</strong><em><strong><span style="color:darkred;">*</span></strong></em>,
-                                    <a href="https://sites.google.com/view/ranash">Rana Shahout</a>
-                                    <br>
-                                    <em><span style="color:darkred;">* equal contribution</span></em>
-                                    <br>
-                                    <em><strong style="background: rgba(144, 238, 144, 0.2); padding: 2px 4px; border-radius: 2px;">ICML ES-FoMo</strong></em>, 2025
-                                    <br>
-                                    <a href="https://aneeshers.github.io/predictive-scheduling/">project page</a> /
-                                    <a href="https://github.com/brownkat6/reasoning-scheduling/tree/early-stopping-predictor">code</a> /
-                                    <a href="https://openreview.net/pdf?id=Mn3lrAWy20">arXiv</a>
-                                    <p></p>
-                                    <p>
-                                        Train lightweight predictors to estimate reasoning requirements <em>before</em> generation, then greedily allocate tokens where they matter most.
-                                    </p>
+                            </tr>
+                            <tr data-research-panel="selected">
+                                <td style="padding:0 16px 16px;" colspan="2">
+                                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding:16px;width:20%;vertical-align:middle">
+                                                    <div class="one">
+                                                        <img src="https://aneeshers.github.io/realtime-rl/assets/figures/pacman_gate.gif" width="100%" alt="Pac-Man gate interpretability animation">
+                                                    </div>
+                                                </td>
+                                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                                    <a href="https://aneeshers.github.io/realtime-rl/">
+                                                        <span class="papertitle">Learning Planning Budgets in Real-Time RL</span>
+                                                    </a>
+                                                    <br>
+                                                    <a href="https://aneeshers.github.io">Aneesh Muppidi</a><em><strong><span style="color:darkred;">*</span></strong></em>,
+                                                    <a href="https://firasdarwish.com">Firas Darwish</a><em><strong><span style="color:darkred;">*</span></strong></em>,
+                                                    <a href="https://dylancope.com">Dylan Cope</a>,
+                                                    <a href="https://joao.science">Joao F. Henriques</a>,
+                                                    <a href="https://www.jakobfoerster.com">Jakob Nicolaus Foerster</a>
+                                                    <br>
+                                                    <em><span style="color:darkred;">* equal contribution</span></em>
+                                                    <br>
+                                                    <em><strong style="background: rgba(144, 238, 144, 0.2); padding: 2px 4px; border-radius: 2px;">OpenReview</strong></em>, 2026
+                                                    <br>
+                                                    <a href="https://aneeshers.github.io/realtime-rl/">project page</a> /
+                                                    <a href="https://github.com/Aneeshers/Real-time-RL">code</a> /
+                                                    <a href="https://openreview.net/attachment?id=co1yOG9PHM&name=pdf">paper</a>
+                                                    <p></p>
+                                                    <p>
+                                                        Run RL in real-time, and choose how long to think.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:16px;width:20%;vertical-align:middle">
+                                                    <div class="one">
+                                                        <img src="images/pred1.gif" width="100%">
+                                                    </div>
+                                                </td>
+                                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                                    <a href="https://aneeshers.github.io/predictive-scheduling/">
+                                                        <span class="papertitle">Predictive Scheduling for Efficient Inference-Time Reasoning in Large Language Models</span>
+                                                    </a>
+                                                    <br>
+                                                    <a href="https://katrinarbrown.com">Katrina Brown</a><em><strong><span style="color:darkred;">*</span></strong></em>,
+                                                    <strong>Aneesh Muppidi</strong><em><strong><span style="color:darkred;">*</span></strong></em>,
+                                                    <a href="https://sites.google.com/view/ranash">Rana Shahout</a>
+                                                    <br>
+                                                    <em><span style="color:darkred;">* equal contribution</span></em>
+                                                    <br>
+                                                    <em><strong style="background: rgba(144, 238, 144, 0.2); padding: 2px 4px; border-radius: 2px;">ICML ES-FoMo</strong></em>, 2025
+                                                    <br>
+                                                    <a href="https://aneeshers.github.io/predictive-scheduling/">project page</a> /
+                                                    <a href="https://github.com/brownkat6/reasoning-scheduling/tree/early-stopping-predictor">code</a> /
+                                                    <a href="https://openreview.net/pdf?id=Mn3lrAWy20">arXiv</a>
+                                                    <p></p>
+                                                    <p>
+                                                        Train lightweight predictors to estimate reasoning requirements <em>before</em> generation, then greedily allocate tokens where they matter most.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:16px;width:20%;vertical-align:middle">
+                                                    <div class="one">
+                                                        <img src="images/fastTRAC.gif" width="100%">
+                                                    </div>
+                                                </td>
+                                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                                    <a href="https://computationalrobotics.seas.harvard.edu/TRAC/">
+                                                        <span class="papertitle">Parameter-free Optimization for Reinforcement Learning</span>
+                                                    </a>
+                                                    <br>
+                                                    <strong>Aneesh Muppidi</strong>,
+                                                    <a href="https://scholar.google.com/citations?user=pXIRasMAAAAJ&hl=en">Zhiyu Zhang</a>,
+                                                    <a href="https://fietelab.mit.edu/people/">Hank Yang</a>
+                                                    <br>
+                                                    <em><strong style="background: rgba(144, 238, 144, 0.2); padding: 2px 4px; border-radius: 2px;">NeurIPS</strong></em>, 2024
+                                                    <br>
+                                                    <a href="https://computationalrobotics.seas.harvard.edu/TRAC/">project page</a> /
+                                                    <a href="https://github.com/ComputationalRobotics/TRAC?tab=readme-ov-file">code</a> /
+                                                    <a href="https://arxiv.org/abs/2405.16642">arXiv</a>
+                                                    <p></p>
+                                                    <p>
+                                                        Mitigate plasticity loss, accelerate forward transfer, and avoid policy collapse with just <em>one</em> line of code.&nbsp;
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="one">
-                                        <img src="images/fastTRAC.gif" width="100%">
-                                    </div>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <a href="https://computationalrobotics.seas.harvard.edu/TRAC/">
-                                        <span class="papertitle">Parameter-free Optimization for Reinforcement Learning</span>
-                                    </a>
-                                    <br>
-                                    <strong>Aneesh Muppidi</strong>,
-                                    <a href="https://scholar.google.com/citations?user=pXIRasMAAAAJ&hl=en">Zhiyu Zhang</a>,
-                                    <a href="https://fietelab.mit.edu/people/">Hank Yang</a>
-                                    <br>
-                                    <em><strong style="background: rgba(144, 238, 144, 0.2); padding: 2px 4px; border-radius: 2px;">NeurIPS</strong></em>, 2024
-                                    <br>
-                                    <a href="https://computationalrobotics.seas.harvard.edu/TRAC/">project page</a> /
-                                    <a href="https://github.com/ComputationalRobotics/TRAC?tab=readme-ov-file">code</a> /
-                                    <a href="https://arxiv.org/abs/2405.16642">arXiv</a>
-                                    <p></p>
-                                    <p>
-                                        Mitigate plasticity loss, accelerate forward transfer, and avoid policy collapse with just <em>one</em> line of code.&nbsp; </p>
+                            <tr data-research-panel="all" hidden>
+                                <td style="padding:0 16px 16px;" colspan="2">
+                                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding:16px;width:20%;vertical-align:middle">
+                                                    <div class="one">
+                                                        <img src="images/vad_loss.png" width="100%">
+                                                    </div>
+                                                </td>
+                                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                                    <p> <a href="https://aneeshers.github.io/HarvardSeniorThesis/"><strong>Variational Agent Discovery</strong></a>
+                                                        <a href=""> <br>
+                                                            <em>Harvard Senior Thesis&nbsp;</em></a>
+                                                    </p>
+                                                    <p>
+                                                        <a href="https://aneeshers.github.io/PermutationInvariantLearning/"></a> <strong>Aneesh Muppidi</strong><em><strong></strong></em>, <a href="https://cogscikid.com">Wilka Carvalho,</a> <a href="https://gershmanlab.com/people/sam.html">Samuel Gershman</a> <br>
+                                                        <em>Harvard Thesis Collection</em>, 2025 <br>
+                                                        <a href="https://aneeshers.github.io/HarvardSeniorThesis/"> project page</a> / <a href="https://aneeshers.github.io/HarvardSeniorThesis/assets/thesis.pdf">paper</a></p>
+                                                    <p></p>
+                                                    <p>
+                                                        How can we <em>discover</em> agents using <em>only</em> vision?</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:16px;width:20%;vertical-align:middle">
+                                                    <div class="one">
+                                                        <img src="images/particle_l.gif" width="100%">
+                                                    </div>
+                                                </td>
+                                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                                    <a href="https://aneeshers.github.io/PermutationInvariantLearning/">
+                                                        <span class="papertitle">Permutation Invariant Learning with High-Dimensional Particle Filters</span>
+                                                    </a>
+                                                    <br>
+                                                    <a href="https://akhilanb.github.io/">Akhilan Boopathy</a><em><strong><span style="color:darkred;">*</span></strong></em>,
+                                                    <strong>Aneesh Muppidi</strong><em><strong><span style="color:darkred;">*</span></strong></em>, Peggy Yang,
+                                                    <a href="https://scholar.google.com/citations?user=pXIRasMAAAAJ&hl=en">Abhiram Iyer</a>, William Yue,
+                                                    <a href="https://fietelab.mit.edu/people/">Ila Fiete</a>
+                                                    <br>
+                                                    <em><span style="color:darkred;">* equal contribution</span></em>
+                                                    <br>
+                                                    <em>arXiv</em>, 2024
+
+                                                    <br>
+                                                    <a href="https://aneeshers.github.io/PermutationInvariantLearning/">project page</a> /
+                                                    <a href="https://github.com/Aneeshers/PermutationInvariantLearning">code</a> /
+                                                    <a href="https://arxiv.org/abs/2410.22695">arXiv</a>
+
+                                                    <p></p>
+                                                    <p>
+                                                        What is the <em>optimal</em> order of training data? Particle filters can be invariant to training data permutations, mitigiating plasticity loss and catastrophic forgetting.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:16px;width:20%;vertical-align:middle">
+                                                    <div class="one">
+                                                        <img src="images/pf_output2.gif" width="100%">
+                                                    </div>
+                                                </td>
+                                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                                    <a href="https://arxiv.org/pdf/2404.13698">
+                                                        <span class="papertitle">Resampling-free Particle Filters in High-dimensions</span>
+                                                    </a>
+
+                                                    <br>
+
+                                                    <a href="https://akhilanb.github.io/">Akhilan Boopathy</a>,
+                                                    <strong>Aneesh Muppidi</strong>, Peggy Yang,
+                                                    <a href="https://scholar.google.com/citations?user=pXIRasMAAAAJ&hl=en">Abhiram Iyer</a>, William Yue,
+                                                    <a href="https://fietelab.mit.edu/people/">Ila Fiete</a>
+                                                    <br>
+                                                    <em><strong>ICRA</strong></em>, 2024
+                                                    <br>
+                                                    <a href="https://arxiv.org/pdf/2404.13698">arXiv</a>
+                                                    <p></p>
+                                                    <p>
+                                                        Particle filters for Pose Estimation.&nbsp; </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:16px;width:20%;vertical-align:middle">
+                                                    <div class="one">
+                                                        <img src="images/qcnn.png" width="100%">
+                                                    </div>
+                                                </td>
+                                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                                    <a href="https://arxiv.org/abs/2111.00404">
+                                                        <span class="papertitle">Speech Emotion Recognition using Quaternion Convolutional Neural Networks</span>
+                                                    </a>
+                                                    <br>
+
+                                                    <strong>Aneesh Muppidi</strong>,
+                                                    <a href="https://scholar.google.com/citations?user=pXIRasMAAAAJ&hl=en">Martin Radfar</a>
+                                                    <br>
+                                                    <em><strong>ICASSP</strong></em>, 2021
+                                                    <br>
+                                                    <a href="https://www3.cs.stonybrook.edu/~radfar/">arXiv</a>
+                                                    <p></p>
+                                                    <p>
+                                                        QCNNs beat SOTA SER models.&nbsp; </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="one">
-                                        <img src="images/vad_loss.png" width="100%">
-                                    </div>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <p> <a href="https://aneeshers.github.io/HarvardSeniorThesis/"><strong>Variational Agent Discovery</strong></a>
-                                        <a href=""> <br>
-                                            <em>Harvard Senior Thesis&nbsp;</em></a>
-                                    </p>
-                                    <p>
-                                        <a href="https://aneeshers.github.io/PermutationInvariantLearning/"></a> <strong>Aneesh Muppidi</strong><em><strong></strong></em>, <a href="https://cogscikid.com">Wilka Carvalho,</a> <a href="https://gershmanlab.com/people/sam.html">Samuel Gershman</a> <br>
-                                        <em>Harvard Thesis Collection</em>, 2025 <br>
-                                        <a href="https://aneeshers.github.io/HarvardSeniorThesis/"> project page</a> / <a href="https://aneeshers.github.io/HarvardSeniorThesis/assets/thesis.pdf">paper</a></p>
-                                    <p></p>
-                                    <p>
-                                        How can we <em>discover</em> agents using <em>only</em> vision?</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="one">
-                                        <img src="images/particle_l.gif" width="100%">
-                                    </div>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <a href="https://aneeshers.github.io/PermutationInvariantLearning/">
-                                        <span class="papertitle">Permutation Invariant Learning with High-Dimensional Particle Filters</span>
-                                    </a>
-                                    <br>
-                                    <a href="https://akhilanb.github.io/">Akhilan Boopathy</a><em><strong><span style="color:darkred;">*</span></strong></em>,
-                                    <strong>Aneesh Muppidi</strong><em><strong><span style="color:darkred;">*</span></strong></em>, Peggy Yang,
-                                    <a href="https://scholar.google.com/citations?user=pXIRasMAAAAJ&hl=en">Abhiram Iyer</a>, William Yue,
-                                    <a href="https://fietelab.mit.edu/people/">Ila Fiete</a>
-                                    <br>
-                                    <em><span style="color:darkred;">* equal contribution</span></em>
-                                    <br>
-                                    <em>arXiv</em>, 2024
-
-                                    <br>
-                                    <a href="https://aneeshers.github.io/PermutationInvariantLearning/">project page</a> /
-                                    <a href="https://github.com/Aneeshers/PermutationInvariantLearning">code</a> /
-                                    <a href="https://arxiv.org/abs/2410.22695">arXiv</a>
-
-                                    <p></p>
-                                    <p>
-                                        What is the <em>optimal</em> order of training data? Particle filters can be invariant to training data permutations, mitigiating plasticity loss and catastrophic forgetting.
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="one">
-                                        <img src="images/pf_output2.gif" width="100%">
-                                    </div>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <a href="https://arxiv.org/pdf/2404.13698">
-                                        <span class="papertitle">Resampling-free Particle Filters in High-dimensions</span>
-                                    </a>
-
-                                    <br>
-
-                                    <a href="https://akhilanb.github.io/">Akhilan Boopathy</a>,
-                                    <strong>Aneesh Muppidi</strong>, Peggy Yang,
-                                    <a href="https://scholar.google.com/citations?user=pXIRasMAAAAJ&hl=en">Abhiram Iyer</a>, William Yue,
-                                    <a href="https://fietelab.mit.edu/people/">Ila Fiete</a>
-                                    <br>
-                                    <em><strong>ICRA</strong></em>, 2024
-                                    <br>
-                                    <a href="https://arxiv.org/pdf/2404.13698">arXiv</a>
-                                    <p></p>
-                                    <p>
-                                        Particle filters for Pose Estimation.&nbsp; </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="one">
-                                        <img src="images/qcnn.png" width="100%">
-                                    </div>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <a href="https://arxiv.org/abs/2111.00404">
-                                        <span class="papertitle">Speech Emotion Recognition using Quaternion Convolutional Neural Networks</span>
-                                    </a>
-                                    <br>
-
-                                    <strong>Aneesh Muppidi</strong>,
-                                    <a href="https://scholar.google.com/citations?user=pXIRasMAAAAJ&hl=en">Martin Radfar</a>
-                                    <br>
-                                    <em><strong>ICASSP</strong></em>, 2021
-                                    <br>
-                                    <a href="https://www3.cs.stonybrook.edu/~radfar/">arXiv</a>
-                                    <p></p>
-                                    <p>
-                                        QCNNs beat SOTA SER models.&nbsp; </p>
-                                </td>
-                            </tr>
-
-
-
 
                         </tbody>
                     </table>
