@@ -386,6 +386,13 @@ span[style*="color: darkred"] {
     display: table-row;
   }
 
+  /* The negative offset tightens the desktop layout where the dropdown sits
+     inside the bio cell. On mobile the dropdown is in its own row, so the
+     offset drags "Recent News" up over the harvard toggle — reset it. */
+  .recent-news-wrap {
+    margin-top: 12px;
+  }
+
   /* Profile image centered on mobile */
   .profile-image-cell {
     vertical-align: middle !important;
