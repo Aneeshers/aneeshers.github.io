@@ -74,10 +74,10 @@
   --accent-soft: color-mix(in srgb, var(--accent) 12%, white);
   --ink: #1a1a2e;
   /* header layout */
-  --bio-w: 71%;
-  --photo-w: 197px;
-  --photo-shift: 28%;   /* 0 = hug the bio, 100 = hug the right edge */
-  --photo-top: -17px;
+  --bio-w: 63%;
+  --photo-w: 100%;      /* Sarah's default: photo fills its 37% column */
+  --photo-shift: 0%;    /* 0 = hug the bio, 100 = hug the right edge */
+  --photo-top: 0px;
 }
 
 .bio-cell {
@@ -87,7 +87,7 @@
 }
 
 .profile-image-cell {
-  padding: 2.5% 2.5% 2.5% 0;
+  padding: 2.5%;
   width: calc(100% - var(--bio-w));
   vertical-align: middle;
 }
